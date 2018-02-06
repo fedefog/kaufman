@@ -1,30 +1,143 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Avenir";
+  src: url(css/vendors/fonts/Avenir.ttf);
+}
+@font-face {
+  font-family: "Playfair Display SC";
+  src: url(css/vendors/fonts/PlayfairDisplaySC-Bold.ttf);
+}
+@font-face {
+  font-family: "Syncopate";
+  src: url(css/vendors/fonts/Syncopate-Regular.ttf);
+}
 /* line 1, ../sass/base/_reset.scss */
-html {
+html, body {
   background: #FFFFFF;
-  font-family: Helvetica, sans-serif;
+  font-family: "Avenir", Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.1;
 }
 
 /* line 8, ../sass/base/_reset.scss */
 a {
-  color: #000000;
+  color: #404041;
   text-decoration: none;
+}
+
+/* line 13, ../sass/base/_reset.scss */
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* line 19, ../sass/base/_reset.scss */
+.right {
+  float: right !important;
+}
+
+/* line 1, ../sass/modules/_titles.scss */
+.title {
+  font-family: "Playfair Display SC";
+  font-size: 64px;
+  color: #000033;
+  line-height: 0.8;
+  margin-bottom: 30px;
+}
+
+/* line 9, ../sass/modules/_titles.scss */
+.subtitle {
+  font-family: "Syncopate";
+  text-transform: uppercase;
+  font-size: 38px;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
 }
 
 /* line 1, ../sass/partials/_header.scss */
 header {
-  background: #FEF8ED;
-  height: 208px;
+  background-color: #FEF7EC;
+  font-family: "Syncopate";
+  font-size: 14px;
+  text-transform: uppercase;
+}
+/* line 7, ../sass/partials/_header.scss */
+header .nav {
+  text-align: center;
+  padding: 20px 0 10px;
+}
+/* line 11, ../sass/partials/_header.scss */
+header .nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+/* line 16, ../sass/partials/_header.scss */
+header .nav li a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+/* line 24, ../sass/partials/_header.scss */
+header .open-nav {
+  margin: 20px 0 5px;
+}
+/* line 27, ../sass/partials/_header.scss */
+header .open-nav p {
+  display: inline-block;
+}
+/* line 31, ../sass/partials/_header.scss */
+header .open-nav .nav-icon {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  height: 15px;
+  margin-left: 10px;
+}
+/* line 38, ../sass/partials/_header.scss */
+header .open-nav .nav-icon .line {
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  background: #404041;
+}
+/* line 45, ../sass/partials/_header.scss */
+header .open-nav .nav-icon .line:nth-of-type(1) {
+  top: 0;
+}
+/* line 49, ../sass/partials/_header.scss */
+header .open-nav .nav-icon .line:nth-of-type(2) {
+  top: calc(50% - 1px);
+}
+/* line 53, ../sass/partials/_header.scss */
+header .open-nav .nav-icon .line:nth-of-type(3) {
+  bottom: 0;
+}
+/* line 63, ../sass/partials/_header.scss */
+header .bottom {
+  background-color: #000033;
+  height: 40px;
+}
+/* line 67, ../sass/partials/_header.scss */
+header .bottom .btn-contact {
+  background: #E89151;
+  color: #FFFFFF;
+  font-size: 11px;
+  padding: 7px 60px;
 }
 
 /* line 1, ../sass/partials/_footer.scss */
 footer {
-  background: #000033;
-  opacity: 0.8;
-  height: 78px;
+  background-color: #000033;
+  color: #FFFFFF;
+  font-size: 10px;
+  padding: 25px 0;
+  text-align: center;
+}
+/* line 8, ../sass/partials/_footer.scss */
+footer p {
+  margin: 0;
 }
 
 /*!
@@ -3776,4 +3889,83 @@ footer {
   margin: 0;
   overflow: visible;
   clip: auto;
+}
+
+/* line 3, ../sass/pages/_home.scss */
+.page-home .slider .home-slider {
+  border: 0;
+  margin: 0;
+}
+/* line 7, ../sass/pages/_home.scss */
+.page-home .slider .home-slider li {
+  position: relative;
+  height: 750px;
+}
+/* line 11, ../sass/pages/_home.scss */
+.page-home .slider .home-slider li .slider-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+}
+/* line 22, ../sass/pages/_home.scss */
+.page-home .slider .home-slider li h1 {
+  font-family: "Playfair Display SC";
+  font-size: 78px;
+  color: #FFFFFF;
+  margin-top: 205px;
+  text-shadow: 0px 0px 20px #171717;
+}
+
+/* line 2, ../sass/pages/_servicios.scss */
+.page-servicios .heading {
+  text-align: center;
+  padding: 80px 0;
+}
+/* line 6, ../sass/pages/_servicios.scss */
+.page-servicios .heading .content {
+  max-width: 516px;
+  margin: 0 auto;
+}
+/* line 10, ../sass/pages/_servicios.scss */
+.page-servicios .heading .content .small-subtitle {
+  font-family: "Syncopate";
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+/* line 17, ../sass/pages/_servicios.scss */
+.page-servicios .heading .content p {
+  font-size: 14px;
+}
+/* line 23, ../sass/pages/_servicios.scss */
+.page-servicios .item {
+  margin-bottom: 150px;
+}
+/* line 26, ../sass/pages/_servicios.scss */
+.page-servicios .item .subtitle {
+  margin-top: 80px;
+}
+/* line 30, ../sass/pages/_servicios.scss */
+.page-servicios .item p {
+  padding-right: 155px;
+}
+/* line 33, ../sass/pages/_servicios.scss */
+.page-servicios .item p.text-right {
+  padding-right: 0;
+  padding-left: 155px;
+}
+/* line 40, ../sass/pages/_servicios.scss */
+.page-servicios .item .img-container {
+  height: 370px;
+}
+/* line 43, ../sass/pages/_servicios.scss */
+.page-servicios .item .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
