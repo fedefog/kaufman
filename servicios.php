@@ -1,7 +1,7 @@
 <?php $page_name = "servicios" ?>
 <?php include('header.php'); ?>
 
-<section class="heading">
+<section class="page-heading">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -18,11 +18,16 @@
 <section id="wealth-management" class="item">
     <div class="container">
         <div class="row">
+            <div class="col-md-7 mobile">
+                <div class="img-container">
+                    <img class="img-responsive" src="images/wealth-magement.jpg"> 
+                </div>
+            </div>
             <div class="col-md-5">
                 <div class="subtitle">Wealth management</div>
                 <p>Nuestros gestores de banca privada le armarán el portafolio adecuado en función de su perfil de riesgo, ya sea su objetivo primario la preservación del capital, el ingreso o el crecimiento de su inversión.  Dicha gestión puede ser totalmente discrecional o que el cliente participe activamente en la gestión.</p>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 desktop">
                 <div class="img-container">
                     <img class="img-responsive" src="images/wealth-magement.jpg"> 
                 </div>
@@ -50,11 +55,16 @@
 <section id="reporting" class="item">
     <div class="container">
         <div class="row">
+            <div class="col-md-7 mobile">
+                <div class="img-container">
+                    <img class="img-responsive" src="images/reporting.jpg"> 
+                </div>
+            </div>
             <div class="col-md-5">
                 <div class="subtitle">Reporting</div>
                 <p>Nuestros informes incluyen:<br>Estados de cuenta y movimientos de cuenta corriente. Tambien con acceso online <br>Asset Allocation y Performance<br>Atribución de Retorno<br>Analisis integral de los diferentes activos financieros <br>Oportunidades de inversión para optimizar el portafolio<br>Informes de mercados <br>Noticias relevantes</p>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 desktop">
                 <div class="img-container">
                     <img class="img-responsive" src="images/reporting.jpg"> 
                 </div>
@@ -63,7 +73,7 @@
     </div>
 </section>
 
-<section id="wealth-planning" class="item">
+<section id="wealth-planing" class="item">
     <div class="container">
         <div class="row">
             <div class="col-md-7">

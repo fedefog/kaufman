@@ -19,3 +19,15 @@ ul{
 .right{
     float: right !important;
 }
+
+p{
+    font-family: $base-font-family;
+	font-weight: $base-font-weight;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+    text-transform: none;
+    
+    @include respond-to("xsmall"){
+        font-size: 16px !important;
+    }
+}

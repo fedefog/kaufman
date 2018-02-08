@@ -1,18 +1,37 @@
 .page-servicios{
-    .heading{
+    .desktop{
+        display: none;
+        
+        @include respond-to("medium"){
+              display: block;
+        }
+    }
+    
+    .mobile{
+        display: block;
+        
+        @include respond-to("medium"){
+              display: none;
+        }
+    }
+    
+    .page-heading{
         text-align: center;
-        padding: 80px 0;
+        padding: 50px 0 20px;;
+        
+        @include respond-to("medium"){
+              padding: 80px 0;
+        }
+        
+        .title{
+            @include respond-to("xsmall"){
+                font-size: 45px;
+            }
+        }
         
         .content{
             max-width: 516px;
             margin: 0 auto;
-            
-            .small-subtitle{
-                font-family: "Syncopate";
-                font-size: 18px; 
-                text-transform: uppercase;
-                margin-bottom: 0;
-            }
             
             p{
                 font-size: 14px;
@@ -21,20 +40,33 @@
     }
     
     .item{
-        margin-bottom: 150px;
+        margin-bottom: 70px;
+        
+        @include respond-to("medium"){
+            margin-bottom: 150px;
+        }
         
         .subtitle{
-            margin-top: 80px;
+            margin-top: 20px;
+            
+            @include respond-to("xsmall"){
+                font-size: 30px;
+            }
+            
+            @include respond-to("medium"){
+                margin-top: 80px;
+            }
         }
         
         p{
-            padding-right: 155px;
-            
-            &.text-right{
-                padding-right: 0;
-                padding-left: 155px;
+            @include respond-to("medium"){
+                padding-right: 155px;
+
+                &.text-right{
+                    padding-right: 0;
+                    padding-left: 155px;
+                }
             }
-            
         }
         
         .img-container{

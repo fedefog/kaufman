@@ -1,15 +1,15 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Avenir";
-  src: url(css/vendors/fonts/Avenir.ttf);
+  src: url(vendors/fonts/Avenir.otf);
 }
 @font-face {
   font-family: "Playfair Display SC";
-  src: url(css/vendors/fonts/PlayfairDisplaySC-Bold.ttf);
+  src: url(vendors/fonts/PlayfairDisplaySC-Bold.ttf);
 }
 @font-face {
   font-family: "Syncopate";
-  src: url(css/vendors/fonts/Syncopate-Regular.ttf);
+  src: url(vendors/fonts/Syncopate-Regular.ttf);
 }
 /* line 1, ../sass/base/_reset.scss */
 html, body {
@@ -17,7 +17,7 @@ html, body {
   font-family: "Avenir", Helvetica, sans-serif;
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 /* line 8, ../sass/base/_reset.scss */
@@ -38,6 +38,21 @@ ul {
   float: right !important;
 }
 
+/* line 23, ../sass/base/_reset.scss */
+p {
+  font-family: "Avenir", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  text-transform: none;
+}
+@media (max-width: 768px) {
+  /* line 23, ../sass/base/_reset.scss */
+  p {
+    font-size: 16px !important;
+  }
+}
+
 /* line 1, ../sass/modules/_titles.scss */
 .title {
   font-family: "Playfair Display SC";
@@ -56,6 +71,14 @@ ul {
   letter-spacing: 3px;
 }
 
+/* line 17, ../sass/modules/_titles.scss */
+.small-subtitle {
+  font-family: "Syncopate";
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
 /* line 1, ../sass/partials/_header.scss */
 header {
   background-color: #FEF7EC;
@@ -63,38 +86,65 @@ header {
   font-size: 14px;
   text-transform: uppercase;
 }
-/* line 7, ../sass/partials/_header.scss */
+@media (max-width: 768px) {
+  /* line 1, ../sass/partials/_header.scss */
+  header {
+    padding-top: 25px;
+  }
+}
+@media (max-width: 768px) {
+  /* line 11, ../sass/partials/_header.scss */
+  header .logo {
+    width: 60%;
+    max-width: fit-content;
+  }
+}
+@media (max-width: 768px) {
+  /* line 18, ../sass/partials/_header.scss */
+  header .iso {
+    width: 20%;
+    max-width: 78px;
+  }
+}
+/* line 25, ../sass/partials/_header.scss */
 header .nav {
   text-align: center;
   padding: 20px 0 10px;
 }
-/* line 11, ../sass/partials/_header.scss */
+/* line 29, ../sass/partials/_header.scss */
 header .nav li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 7px;
 }
-/* line 16, ../sass/partials/_header.scss */
+@media (min-width: 990px) {
+  /* line 29, ../sass/partials/_header.scss */
+  header .nav li {
+    margin: 0 10px;
+  }
+}
+/* line 38, ../sass/partials/_header.scss */
 header .nav li a:hover {
   background-color: transparent;
   text-decoration: underline;
 }
-/* line 24, ../sass/partials/_header.scss */
+/* line 46, ../sass/partials/_header.scss */
 header .open-nav {
   margin: 20px 0 5px;
 }
-/* line 27, ../sass/partials/_header.scss */
+/* line 49, ../sass/partials/_header.scss */
 header .open-nav p {
   display: inline-block;
 }
-/* line 31, ../sass/partials/_header.scss */
+/* line 53, ../sass/partials/_header.scss */
 header .open-nav .nav-icon {
   display: inline-block;
   position: relative;
   width: 28px;
-  height: 15px;
+  height: 16px;
   margin-left: 10px;
+  cursor: pointer;
 }
-/* line 38, ../sass/partials/_header.scss */
+/* line 61, ../sass/partials/_header.scss */
 header .open-nav .nav-icon .line {
   width: 100%;
   height: 1px;
@@ -102,42 +152,169 @@ header .open-nav .nav-icon .line {
   left: 0;
   background: #404041;
 }
-/* line 45, ../sass/partials/_header.scss */
+/* line 68, ../sass/partials/_header.scss */
 header .open-nav .nav-icon .line:nth-of-type(1) {
   top: 0;
 }
-/* line 49, ../sass/partials/_header.scss */
+/* line 72, ../sass/partials/_header.scss */
 header .open-nav .nav-icon .line:nth-of-type(2) {
   top: calc(50% - 1px);
 }
-/* line 53, ../sass/partials/_header.scss */
+/* line 76, ../sass/partials/_header.scss */
 header .open-nav .nav-icon .line:nth-of-type(3) {
   bottom: 0;
 }
-/* line 63, ../sass/partials/_header.scss */
+/* line 86, ../sass/partials/_header.scss */
 header .bottom {
   background-color: #000033;
   height: 40px;
 }
-/* line 67, ../sass/partials/_header.scss */
+/* line 90, ../sass/partials/_header.scss */
 header .bottom .btn-contact {
   background: #E89151;
   color: #FFFFFF;
   font-size: 11px;
   padding: 7px 60px;
 }
+/* line 98, ../sass/partials/_header.scss */
+header .open-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000033;
+  color: #FFFFFF;
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+/* line 111, ../sass/partials/_header.scss */
+header .open-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s;
+}
+/* line 117, ../sass/partials/_header.scss */
+header .open-menu .heading {
+  padding: 50px 20px;
+}
+@media (min-width: 990px) {
+  /* line 117, ../sass/partials/_header.scss */
+  header .open-menu .heading {
+    padding: 160px 30px 100px;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 117, ../sass/partials/_header.scss */
+  header .open-menu .heading {
+    padding: 160px 160px 100px;
+  }
+}
+/* line 128, ../sass/partials/_header.scss */
+header .open-menu .heading .close-icon {
+  width: 23px;
+  height: 23px;
+  position: relative;
+  cursor: pointer;
+}
+/* line 134, ../sass/partials/_header.scss */
+header .open-menu .heading .close-icon .line {
+  width: 100%;
+  height: 1px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+}
+/* line 141, ../sass/partials/_header.scss */
+header .open-menu .heading .close-icon .line:first-of-type {
+  transform: rotate(45deg);
+}
+/* line 145, ../sass/partials/_header.scss */
+header .open-menu .heading .close-icon .line:last-of-type {
+  transform: rotate(-45deg);
+}
+/* line 153, ../sass/partials/_header.scss */
+header .open-menu .search {
+  position: relative;
+  margin-bottom: 110px;
+}
+/* line 157, ../sass/partials/_header.scss */
+header .open-menu .search input {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border-bottom: 1px solid #FFFFFF;
+  font-size: 20px;
+  padding: 20px 0;
+}
+/* line 167, ../sass/partials/_header.scss */
+header .open-menu .search input:focus {
+  outline: none;
+}
+/* line 171, ../sass/partials/_header.scss */
+header .open-menu .search input::placeholder {
+  color: #FFFFFF;
+}
+/* line 176, ../sass/partials/_header.scss */
+header .open-menu .search .fa-search {
+  position: absolute;
+  font-size: 20px;
+  right: 0;
+  top: 20px;
+}
+/* line 184, ../sass/partials/_header.scss */
+header .open-menu .title {
+  font-size: 24px;
+  color: #FFFFFF;
+  letter-spacing: 5px;
+  line-height: 1.5;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+/* line 193, ../sass/partials/_header.scss */
+header .open-menu .nav {
+  padding: 0;
+}
+/* line 196, ../sass/partials/_header.scss */
+header .open-menu .nav li {
+  display: block;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 15px;
+}
+/* line 202, ../sass/partials/_header.scss */
+header .open-menu .nav li a {
+  color: #FFFFFF;
+  padding: 10px 0;
+}
+/* line 209, ../sass/partials/_header.scss */
+header .open-menu .contacto {
+  color: #FFFFFF;
+  margin: 85px 0;
+  display: block;
+}
+/* line 215, ../sass/partials/_header.scss */
+header .open-menu .lang {
+  margin-top: 100px;
+  display: block;
+  color: #FFFFFF;
+}
 
 /* line 1, ../sass/partials/_footer.scss */
 footer {
   background-color: #000033;
   color: #FFFFFF;
-  font-size: 10px;
   padding: 25px 0;
   text-align: center;
 }
-/* line 8, ../sass/partials/_footer.scss */
+/* line 7, ../sass/partials/_footer.scss */
 footer p {
   margin: 0;
+  font-size: 10px;
 }
 
 /*!
@@ -3901,7 +4078,13 @@ footer p {
   position: relative;
   height: 750px;
 }
-/* line 11, ../sass/pages/_home.scss */
+@media (max-width: 768px) {
+  /* line 7, ../sass/pages/_home.scss */
+  .page-home .slider .home-slider li {
+    height: 650px;
+  }
+}
+/* line 15, ../sass/pages/_home.scss */
 .page-home .slider .home-slider li .slider-bg {
   width: 100%;
   height: 100%;
@@ -3911,7 +4094,7 @@ footer p {
   object-fit: cover;
   object-position: center;
 }
-/* line 22, ../sass/pages/_home.scss */
+/* line 26, ../sass/pages/_home.scss */
 .page-home .slider .home-slider li h1 {
   font-family: "Playfair Display SC";
   font-size: 78px;
@@ -3919,53 +4102,234 @@ footer p {
   margin-top: 205px;
   text-shadow: 0px 0px 20px #171717;
 }
+@media (max-width: 768px) {
+  /* line 26, ../sass/pages/_home.scss */
+  .page-home .slider .home-slider li h1 {
+    font-size: 48px;
+  }
+}
 
 /* line 2, ../sass/pages/_servicios.scss */
-.page-servicios .heading {
-  text-align: center;
-  padding: 80px 0;
+.page-servicios .desktop {
+  display: none;
 }
-/* line 6, ../sass/pages/_servicios.scss */
-.page-servicios .heading .content {
+@media (min-width: 990px) {
+  /* line 2, ../sass/pages/_servicios.scss */
+  .page-servicios .desktop {
+    display: block;
+  }
+}
+/* line 10, ../sass/pages/_servicios.scss */
+.page-servicios .mobile {
+  display: block;
+}
+@media (min-width: 990px) {
+  /* line 10, ../sass/pages/_servicios.scss */
+  .page-servicios .mobile {
+    display: none;
+  }
+}
+/* line 18, ../sass/pages/_servicios.scss */
+.page-servicios .page-heading {
+  text-align: center;
+  padding: 50px 0 20px;
+}
+@media (min-width: 990px) {
+  /* line 18, ../sass/pages/_servicios.scss */
+  .page-servicios .page-heading {
+    padding: 80px 0;
+  }
+}
+@media (max-width: 768px) {
+  /* line 26, ../sass/pages/_servicios.scss */
+  .page-servicios .page-heading .title {
+    font-size: 45px;
+  }
+}
+/* line 32, ../sass/pages/_servicios.scss */
+.page-servicios .page-heading .content {
   max-width: 516px;
   margin: 0 auto;
 }
-/* line 10, ../sass/pages/_servicios.scss */
-.page-servicios .heading .content .small-subtitle {
-  font-family: "Syncopate";
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-/* line 17, ../sass/pages/_servicios.scss */
-.page-servicios .heading .content p {
+/* line 36, ../sass/pages/_servicios.scss */
+.page-servicios .page-heading .content p {
   font-size: 14px;
 }
-/* line 23, ../sass/pages/_servicios.scss */
+/* line 42, ../sass/pages/_servicios.scss */
 .page-servicios .item {
-  margin-bottom: 150px;
+  margin-bottom: 70px;
 }
-/* line 26, ../sass/pages/_servicios.scss */
+@media (min-width: 990px) {
+  /* line 42, ../sass/pages/_servicios.scss */
+  .page-servicios .item {
+    margin-bottom: 150px;
+  }
+}
+/* line 49, ../sass/pages/_servicios.scss */
 .page-servicios .item .subtitle {
-  margin-top: 80px;
+  margin-top: 20px;
 }
-/* line 30, ../sass/pages/_servicios.scss */
-.page-servicios .item p {
-  padding-right: 155px;
+@media (max-width: 768px) {
+  /* line 49, ../sass/pages/_servicios.scss */
+  .page-servicios .item .subtitle {
+    font-size: 30px;
+  }
 }
-/* line 33, ../sass/pages/_servicios.scss */
-.page-servicios .item p.text-right {
-  padding-right: 0;
-  padding-left: 155px;
+@media (min-width: 990px) {
+  /* line 49, ../sass/pages/_servicios.scss */
+  .page-servicios .item .subtitle {
+    margin-top: 80px;
+  }
 }
-/* line 40, ../sass/pages/_servicios.scss */
+@media (min-width: 990px) {
+  /* line 61, ../sass/pages/_servicios.scss */
+  .page-servicios .item p {
+    padding-right: 155px;
+  }
+  /* line 65, ../sass/pages/_servicios.scss */
+  .page-servicios .item p.text-right {
+    padding-right: 0;
+    padding-left: 155px;
+  }
+}
+/* line 72, ../sass/pages/_servicios.scss */
 .page-servicios .item .img-container {
   height: 370px;
 }
-/* line 43, ../sass/pages/_servicios.scss */
+/* line 75, ../sass/pages/_servicios.scss */
 .page-servicios .item .img-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* line 2, ../sass/pages/_empresa.scss */
+.page-empresa .box {
+  background-color: #E5E5EA;
+}
+/* line 6, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading {
+  padding: 80px 0;
+}
+/* line 9, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading .col-md-3 {
+  margin-bottom: 30px;
+}
+@media (min-width: 990px) {
+  /* line 9, ../sass/pages/_empresa.scss */
+  .page-empresa .page-heading .col-md-3 {
+    margin: 0;
+  }
+}
+/* line 18, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading .content .small-subtitle {
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: -15px;
+}
+/* line 24, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading .content p {
+  padding: 0 20px;
+}
+/* line 29, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading .title {
+  font-size: 36px;
+  text-align: center;
+  line-height: 1;
+}
+/* line 35, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading .box {
+  padding: 20px;
+  min-height: 168px;
+}
+/* line 39, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading .box .small-subtitle {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+/* line 44, ../sass/pages/_empresa.scss */
+.page-empresa .page-heading .box a {
+  font-family: "Syncopate";
+  font-size: 10px;
+  color: #000033;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 54, ../sass/pages/_empresa.scss */
+.page-empresa .desc {
+  position: relative;
+  padding-bottom: 195px;
+  margin-bottom: 70px;
+}
+/* line 59, ../sass/pages/_empresa.scss */
+.page-empresa .desc img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top;
+}
+/* line 66, ../sass/pages/_empresa.scss */
+.page-empresa .desc .box {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 20px;
+  width: 100%;
+}
+@media (min-width: 990px) {
+  /* line 66, ../sass/pages/_empresa.scss */
+  .page-empresa .desc .box {
+    left: 25%;
+    padding: 50px 110px;
+  }
+  /* line 77, ../sass/pages/_empresa.scss */
+  .page-empresa .desc .box.large {
+    padding: 30px 110px;
+  }
+}
+
+/* line 2, ../sass/pages/_contacto.scss */
+.page-contacto #map {
+  width: 100%;
+  height: 480px;
+}
+/* line 7, ../sass/pages/_contacto.scss */
+.page-contacto .info {
+  text-align: center;
+  padding: 70px 0;
+}
+/* line 11, ../sass/pages/_contacto.scss */
+.page-contacto .info .social {
+  margin-bottom: 20px;
+}
+/* line 14, ../sass/pages/_contacto.scss */
+.page-contacto .info .social li {
+  display: inline-block;
+  color: #58595B;
+  font-size: 30px;
+  padding: 0 10px;
+}
+/* line 22, ../sass/pages/_contacto.scss */
+.page-contacto .info .tel {
+  display: inline-block;
+  padding: 30px 30px;
+  vertical-align: bottom;
+  border-right: 1px solid;
+  width: 48%;
+  text-align: right;
+}
+/* line 31, ../sass/pages/_contacto.scss */
+.page-contacto .info .dir {
+  display: inline-block;
+  padding: 10px 30px;
+  text-align: left;
+}
+/* line 37, ../sass/pages/_contacto.scss */
+.page-contacto .info .consulta {
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: block;
+  width: fit-content;
 }
