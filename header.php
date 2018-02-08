@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-md-12">
                 <div class="open-nav right">
-                    <p>ESPˇ</p>
+                    <p><a href="#">ESPˇ</a></p>
                     <div class="nav-icon">
                         <div class="line"></div>
                         <div class="line"></div>
